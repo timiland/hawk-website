@@ -18,9 +18,11 @@ const components = {
 };
 
 storyblokInit({
+	// accessToken: 'kq9rDiCrR3Kc6SZJSrojqwtt',
+	// accessToken: 'kq9rDiCrR3Kc6SZJSrojqwtt',
 	accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
 	use: [apiPlugin], // describe what Storyblok features to use
-	apiOptions: { region: 'us' }, // region is needed if space is created in US
+	// apiOptions: { region: 'us' }, // region is needed if space is created in US
 	components,
 });
 

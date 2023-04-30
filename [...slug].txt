@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css';
 import { useStoryblokState, getStoryblokApi, StoryblokComponent } from '@storyblok/react';
 import { GetStaticPathsContext, GetStaticPathsResult, GetStaticPropsContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { StoryProp } from '../types';
+import { StoryProp } from './types';
 
 export default function Page({ story, preview }: StoryProp) {
 	story = useStoryblokState(story, {}, preview); // enables live visual editing and preview mode
