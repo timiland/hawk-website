@@ -2,11 +2,11 @@ import '../styles/index.scss';
 import type { AppProps } from 'next/app';
 import { storyblokInit, apiPlugin } from '@storyblok/react';
 import Header from '../components/organisms/Header/Header';
-import { Page } from '../components';
 import localFont from '@next/font/local';
 import HeroSection from '../components/organisms/HeroSection/HeroSection';
 import IconFeatureSection from '../components/organisms/IconFeatureSection/IconFeatureSection';
 import TextScrollSection from '../components/organisms/TextScrollSection/TextScrollSection';
+import { Page } from '../components/Page';
 
 const archia = localFont({
 	src: [
