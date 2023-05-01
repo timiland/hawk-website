@@ -7,6 +7,7 @@ import HeroSection from '../components/organisms/HeroSection/HeroSection';
 import IconFeatureSection from '../components/organisms/IconFeatureSection/IconFeatureSection';
 import TextScrollSection from '../components/organisms/TextScrollSection/TextScrollSection';
 import { Page } from '../components/Page';
+import AccordionSection from '../components/organisms/AccordionSection/AccordionSection';
 
 const archia = localFont({
 	src: [
@@ -36,6 +37,7 @@ const components = {
 	iconFeatureSection: IconFeatureSection,
 	page: Page,
 	textScrollSection: TextScrollSection,
+	accordionSection: AccordionSection,
 };
 
 storyblokInit({

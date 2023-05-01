@@ -1,8 +1,10 @@
-export interface I{{pascalCase name}} {
+import { storyblokEditable, SbBlokData } from '@storyblok/react';
+
+export interface I{{pascalCase name}} extends SbBlokData {
   // ~~readonly props here~~
 }
 
-const {{pascalCase name}} = ({ blok }: { blok: I{{pascalCase name}}) => {
+const {{pascalCase name}} = ({ blok }: { blok: I{{pascalCase name}}}) => {
   const { } = blok;
 
   return (

@@ -3,13 +3,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import ILink from '../../../types/ILink';
 import { useState, useEffect, useRef } from 'react';
-import {
-	motion,
-	useScroll,
-	useTransform,
-	useMotionValueEvent,
-	useMotionValue,
-} from 'framer-motion';
+import { useScroll, useTransform, useMotionValueEvent, useSpring } from 'framer-motion';
 import Icon from '../../atoms/Icon/Icon';
 
 interface ITextScrollSection extends SbBlokData {
@@ -28,8 +22,6 @@ export const TextScrollSection = ({ blok }: { blok: ITextScrollSection }) => {
 		offset: ['center end', '1 1.2'],
 	});
 
-	const scrollValue = useTransform(scrollYProgress, [0, 0.15], ['100%', '0%']);
-
 	const splitParagraph = paragraphText.split('');
 
 	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
@@ -39,18 +31,13 @@ export const TextScrollSection = ({ blok }: { blok: ITextScrollSection }) => {
 	return (
 		<section
 			ref={ref}
-			className="container flex flex-col gap-5 py-[300px] xl:gap-y-10"
+			className="container flex flex-col gap-5  py-[150px] xl:gap-y-10 xl:py-[300px]"
 			{...storyblokEditable(blok)}
 		>
 			{title && <h5>{title}</h5>}
 			<h2>
 				{splitParagraph.map((letter, index) => (
 					<span
-						// className={clsx(
-						// 	Math.floor(scrollYProgress.get() * 100) <
-						// 		Math.floor((index / splitParagraph.length) * 100) &&
-						// 		'text-experience'
-						// )}
 						className={clsx(
 							index > Math.floor(scrollYProgress.get() * splitParagraph.length) - 1 &&
 								'text-experience'

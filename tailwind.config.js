@@ -47,6 +47,9 @@ module.exports = {
 				experience: {
 					DEFAULT: '#D4DCD8',
 				},
+				profound: {
+					DEFAULT: '#69726E',
+				},
 			},
 		},
 	},

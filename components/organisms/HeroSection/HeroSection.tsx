@@ -18,13 +18,15 @@ export const HeroSection = ({ blok }: { blok: IHeroSection }) => {
 	const { title, text, backgroundImage, textColour, cta } = blok;
 	return (
 		<section className="relative py-[100px]" {...storyblokEditable(blok)}>
-			<Image
-				alt={backgroundImage.alt}
-				src={backgroundImage.filename}
-				fill
-				className="absolute z-0 object-cover"
-			/>
-			<div className="container relative z-10 flex flex-col items-center justify-center gap-6 text-center xl:gap-8">
+			<div className="unset-img">
+				<Image
+					alt={backgroundImage.alt}
+					src={backgroundImage.filename}
+					fill
+					className="custom-img"
+				/>
+			</div>
+			<div className="container absolute inset-0 z-10 flex flex-col items-center justify-center gap-6 text-center xl:gap-8">
 				<h1 className={clsx(textColour === 'white' ? 'text-white' : 'text-black')}>
 					{title}
 				</h1>
