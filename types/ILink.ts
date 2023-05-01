@@ -1,8 +1,7 @@
 import { SbBlokData } from '@storyblok/react';
-import TargetEnum from './enums/TargetEnum';
+import ISbURL from './ISbURL';
 
 export default interface ILink extends SbBlokData {
-  readonly url: string;
-  readonly title: string;
-  readonly target?: TargetEnum;
+	readonly title: string;
+	readonly url: ISbURL;
 }

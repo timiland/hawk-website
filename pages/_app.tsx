@@ -1,34 +1,52 @@
-import '../styles/globals.css';
+import '../styles/index.scss';
 import type { AppProps } from 'next/app';
 import { storyblokInit, apiPlugin } from '@storyblok/react';
-import { Feature, Grid, Teaser, Page } from '../components';
-import { Inter } from '@next/font/google';
+import Header from '../components/organisms/Header/Header';
+import { Page } from '../components';
+import localFont from '@next/font/local';
+import HeroSection from '../components/organisms/HeroSection/HeroSection';
+import IconFeatureSection from '../components/organisms/IconFeatureSection/IconFeatureSection';
+import TextScrollSection from '../components/organisms/TextScrollSection/TextScrollSection';
 
-export const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter-vf',
-	axes: ['slnt'],
+const archia = localFont({
+	src: [
+		{
+			path: '../public/fonts/archia/Archia-Medium.woff2',
+			weight: '500',
+			style: 'normal',
+		},
+	],
+	variable: '--font-archia',
+});
+
+const bolton = localFont({
+	src: [
+		{
+			path: '../public/fonts/f37bolton/F37Bolton-Regular.woff2',
+			weight: '400',
+			style: 'normal',
+		},
+	],
+	variable: '--font-bolton',
 });
 
 const components = {
-	feature: Feature,
-	grid: Grid,
-	teaser: Teaser,
+	header: Header,
+	heroSection: HeroSection,
+	iconFeatureSection: IconFeatureSection,
 	page: Page,
+	textScrollSection: TextScrollSection,
 };
 
 storyblokInit({
-	// accessToken: 'kq9rDiCrR3Kc6SZJSrojqwtt',
-	// accessToken: 'kq9rDiCrR3Kc6SZJSrojqwtt',
 	accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
-	use: [apiPlugin], // describe what Storyblok features to use
-	// apiOptions: { region: 'us' }, // region is needed if space is created in US
+	use: [apiPlugin],
 	components,
 });
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<main className={`${inter.variable} u-font-sans`}>
+		<main className={`${archia.variable} ${bolton.variable} font-bolton text-black`}>
 			<Component {...pageProps} />
 		</main>
 	);

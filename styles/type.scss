@@ -1,0 +1,19 @@
+h1 {
+	@apply font-archia text-[35px] font-medium leading-[35px] tracking-[-0.01rem] xl:text-[70px] xl:leading-[70px];
+}
+
+h2 {
+	@apply font-archia text-[56px] font-medium leading-[60px] tracking-[-0.02rem];
+}
+
+h5 {
+	@apply font-archia text-[24px] font-medium leading-[32px] tracking-[-0.01rem];
+}
+
+.cta-large-text {
+	@apply font-bolton text-[20px] leading-7;
+}
+
+.cta-small-text {
+	@apply font-bolton leading-[24px];
+}

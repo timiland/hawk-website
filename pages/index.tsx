@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 
 import { useStoryblokState, getStoryblokApi, StoryblokComponent } from '@storyblok/react';
 import { StoryProp } from '../types';
@@ -9,16 +8,11 @@ export default function Home({ story, preview }: StoryProp) {
 	story = useStoryblokState(story); // enables live visual editing and preview mode
 
 	return (
-		<div className={styles.container}>
+		<div>
 			<Head>
-				<title>Create Next App</title>
+				<title>Hawk</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-
-			<header className="u-mb-2 u-border-b-2 u-border-sky-500">
-				<h1>{story ? story.name : 'My Site'}</h1>
-			</header>
-
 			<StoryblokComponent blok={story.content} />
 		</div>
 	);

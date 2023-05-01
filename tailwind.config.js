@@ -1,36 +1,53 @@
 /** @type {import('tailwindcss').Config} */
-const { extractTwColorsToCssVars } = require('./utils/tailwind.customUtilities');
-const { fontFamily } = require('tailwindcss/defaultTheme')
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-	prefix: 'u-',
-	content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+	content: [
+		'./pages/**/*.{js,ts,jsx,tsx}',
+		'./components/**/*.{js,ts,jsx,tsx}',
+		'./app/**/*.{js,ts,jsx,tsx}',
+	],
 	theme: {
-		//screens: {}, // declare theme screensizes
-		//spacing: {}, // declare custom theme scales
-		//lineHeight: {},
+		container: {
+			center: true,
+			screens: {
+				sm: '330px',
+				md: '768px',
+				lg: '500px',
+				xl: '800px',
+				'2xl': '1000px',
+			},
+			// padding: {
+			//   DEFAULT: '20px',
+			//   sm: '20px',
+			//   md: '60px',
+			//   lg: '100px',
+			//   xl: '100px',
+			//   '2xl': '140px',
+			// },
+		},
 		extend: {
+			backdropBlur: {
+				xs: '2px',
+			},
+			fontFamily: {
+				bolton: ['var(--font-bolton)', ...fontFamily.sans],
+				archia: ['var(--font-archia)', ...fontFamily.sans],
+			},
 			colors: {
-				ninja: {
-				'100': '#f5f5f5',
-				'200': '#eeeeee',
-				'300': '#e0e0e0',
-				'400': '#bdbdbd',
-				'500': '#9e9e9e',
-				'600': '#757575',
-				'700': '#616161',
-				'800': '#424242',
-				'900': '#212121',
+				pinpoint: {
+					DEFAULT: '#F1F152',
+				},
+				wisdom: {
+					DEFAULT: '#AFB9B4',
+				},
+				black: {
+					DEFAULT: '#1F2725',
+				},
+				experience: {
+					DEFAULT: '#D4DCD8',
 				},
 			},
 		},
-		fontFamily: {
-			sans: [
-				'var(--font-inter-vf)', ...fontFamily.sans
-			],
-		},
 	},
-	// official plugins https://tailwindcss.com/docs/plugins#official-plugins
-	// https://gist.github.com/Merott/d2a19b32db07565e94f10d13d11a8574
-	plugins: [extractTwColorsToCssVars],
 };
