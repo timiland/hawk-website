@@ -25,10 +25,10 @@ export const TextScrollSection = ({ blok }: { blok: ITextScrollSection }) => {
 	const ref = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: ref,
-		offset: ['center end', 'end end'],
+		offset: ['center end', '1 1.2'],
 	});
 
-	// const scrollValue = useTransform(scrollYProgress, [0, 0.15], ['100%', '0%']);
+	const scrollValue = useTransform(scrollYProgress, [0, 0.15], ['100%', '0%']);
 
 	const splitParagraph = paragraphText.split('');
 
@@ -46,9 +46,13 @@ export const TextScrollSection = ({ blok }: { blok: ITextScrollSection }) => {
 			<h2>
 				{splitParagraph.map((letter, index) => (
 					<span
+						// className={clsx(
+						// 	Math.floor(scrollYProgress.get() * 100) <
+						// 		Math.floor((index / splitParagraph.length) * 100) &&
+						// 		'text-experience'
+						// )}
 						className={clsx(
-							Math.floor(scrollYProgress.get() * 100) <
-								Math.floor((index / splitParagraph.length) * 100) &&
+							index > Math.floor(scrollYProgress.get() * splitParagraph.length) - 1 &&
 								'text-experience'
 						)}
 						key={index}

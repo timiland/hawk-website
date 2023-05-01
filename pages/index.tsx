@@ -1,6 +1,10 @@
 import Head from 'next/head';
-
-import { useStoryblokState, getStoryblokApi, StoryblokComponent } from '@storyblok/react';
+import {
+	useStoryblokState,
+	getStoryblokApi,
+	StoryblokComponent,
+	ISbStoriesParams,
+} from '@storyblok/react';
 import { StoryProp } from '../types';
 import { GetStaticPropsContext } from 'next';
 
@@ -25,7 +29,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	// load the draft version
 	let sbParams = {
 		version: 'published', // default shows published
-	};
+	} as ISbStoriesParams;
 
 	if (context.preview) {
 		sbParams.version = 'draft';
