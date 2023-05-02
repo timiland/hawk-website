@@ -31,7 +31,7 @@ export const TextScrollSection = ({ blok }: { blok: ITextScrollSection }) => {
 	return (
 		<section
 			ref={ref}
-			className="container flex flex-col gap-5  py-[150px] xl:gap-y-10 xl:py-[300px]"
+			className="container flex flex-col gap-5  pt-[100px] xl:gap-y-10 xl:py-[300px]"
 			{...storyblokEditable(blok)}
 		>
 			{title && <h5>{title}</h5>}

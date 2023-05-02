@@ -1,4 +1,5 @@
 import { storyblokEditable, SbBlokData } from '@storyblok/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import AccordionItem, { IAccordionItem } from '../../molecules/AccordionItem/AccordionItem';
@@ -12,9 +13,24 @@ const AccordionSection = ({ blok }: { blok: IAccordionSection }) => {
 	const { accordionItems } = blok || {};
 
 	return (
-		<section className="py-[100px] xl:px-10 2xl:px-20" {...storyblokEditable(blok)}>
-			<div className="mx-auto grid h-full max-w-[1300px] xl:grid-cols-2">
-				<div className="">{/* <Image/> */}</div>
+		<section className="pt-[100px] xl:px-10 2xl:px-20" {...storyblokEditable(blok)}>
+			<div className="mx-auto grid h-full max-w-[1300px] xl:grid-cols-2 xl:gap-36">
+				<AnimatePresence mode="wait">
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						key={accordionItems[activeIndex].title}
+						className="relative overflow-hidden xl:min-h-[780px]"
+					>
+						<Image
+							alt={accordionItems[activeIndex].image.alt}
+							src={accordionItems[activeIndex].image.filename}
+							className="object-cover"
+							fill
+						/>
+					</motion.div>
+				</AnimatePresence>
 				<div className="">
 					{accordionItems.map((item, index) => (
 						<AccordionItem

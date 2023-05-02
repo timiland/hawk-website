@@ -10,8 +10,16 @@ h5 {
 	@apply font-archia text-[24px] font-medium leading-[32px] tracking-[-0.01rem];
 }
 
+h4 {
+	@apply font-archia text-[40px] font-medium leading-[44px] tracking-[-0.01rem];
+}
+
 .cta-large-text {
 	@apply font-bolton text-[20px] leading-7;
+}
+
+.body-large {
+	@apply font-bolton text-[20px] leading-7 tracking-[0.02rem];
 }
 
 .cta-small-text {

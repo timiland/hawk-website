@@ -30,7 +30,7 @@ export const IconFeatureSection = ({ blok }: { blok: IIconFeatureSection }) => {
 	}, [inView, showFeatures]);
 
 	return (
-		<section ref={ref} className="py-[100px] xl:px-10 2xl:px-20" {...storyblokEditable(blok)}>
+		<section ref={ref} className="mt-[100px] xl:px-10 2xl:px-20" {...storyblokEditable(blok)}>
 			<div className="relative mx-auto h-full min-h-[790px] max-w-[1300px]">
 				<Image
 					alt={backgroundImage.alt}
